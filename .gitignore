@@ -1,0 +1,31 @@
+# visual studio code files
+.vscode
+
+# mac system files
+*/.DS_Store
+.DS_Store
+
+# snyk deep code file
+.dccache
+
+# example fixture file
+cypress/fixtures/example.json
+
+# test run artifacts
+cypress/cucumber-json
+cypress/logs
+cypress/screenshots
+cypress/snapshots
+cypress/test-results
+cypress/videos
+screenshots
+snapshots
+test-results
+tmpData
+
+# node
+node_modules
+.npmrc
+
+# log files
+debug.log
