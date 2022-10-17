@@ -3,10 +3,14 @@
 describe('CHALLENGE SPACEX', () => {
     beforeEach(() => {
         cy.intercept('https://api.spacexdata.com/v3/rockets').as('getRockets')
+        cy.intercept('https://api.spacexdata.com/v3/launches').as('getLaunches')
         cy.visit('http://csb-x6dpt1.netlify.app/')
         cy.wait('@getRockets').then(intercept => {
-            cy.log(intercept.response.body);
+            cy.log('Rockets loaded succesfully' + intercept.response.body);
             expect(Array[4], intercept.response.body);
+        })
+        cy.wait('@getLaunches').then(intercept => {
+            cy.log('Launches loaded succesfully' + intercept.response.body);
         })
     })
 
