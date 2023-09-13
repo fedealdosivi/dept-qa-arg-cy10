@@ -19,4 +19,10 @@ describe('CHALLENGE SPACEX', () => {
             cy.get('.launches-list-container').should('contain.text', data.LAUNCHE);
         });
     })
+
+    it('Checks for value that does not exist', () => {
+        cy.fixture('spacexData').then((data) => {
+            cy.get('.launches-list-container').should('not.contain.text', data.no_existe);
+        });
+    })
 })

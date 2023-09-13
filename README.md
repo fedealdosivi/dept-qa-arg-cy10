@@ -1,7 +1,8 @@
 # install dependencies
 > npm install
 
-# run
+# open cypress
+> npx cypress open
 > ./node_modules/.bin/cypress open
 
 ![Screen Shot 2022-10-07 at 09 11 45](https://user-images.githubusercontent.com/16344688/194550580-e9c167c1-1469-4e31-986e-b52c68a5da2e.png)
