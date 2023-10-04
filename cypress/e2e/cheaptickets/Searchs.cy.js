@@ -12,14 +12,17 @@ describe('Searchs feature', () => {
         });
         cy.get('button#search_button').contains('Search').click();
 
+
         cy.get('[data-stid="section-results"]').should('be.visible')
             .then((td) => {
                 // synchronously find the target element
                 if (td.text().includes(findPrice)) {
                     cy.log('Exist')
+                    cy.wrap(td).click();
                 } else {
                     cy.log('Does not exist')
                     cy.contains('Show More').click();
+                    cy.get('[data-stid="section-results"]').find('a').last().click();
                 }
             })
     });
