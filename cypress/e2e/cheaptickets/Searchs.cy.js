@@ -1,5 +1,19 @@
 /// <reference types="cypress" />
 
+const LODGING_CARD = '[data-stid="lodging-card-responsive"]';
+const SEARCH_BUTTON = 'button#search_button';
+const DESTINATION_INPUT = 'input#destination_form_field';
+const RESULTS_SECTION = '[data-stid="section-results"]';
+
+/**
+ * Utility function to perform the search.
+ */
+const performSearch = (destination) => {
+    cy.get('.uitk-form-field-trigger').first().click();
+    cy.get(DESTINATION_INPUT).type(destination).type('{enter}');
+    cy.get(SEARCH_BUTTON).contains('Search').click();
+};
+
 describe('Searchs feature', () => {
 
     it('I am in the main page of Cheaptickets', () => {

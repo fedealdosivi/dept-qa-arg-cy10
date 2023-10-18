@@ -23,3 +23,16 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+Cypress.Commands.add('fillDateOfBirth', (day, month, year) => {
+    cy.get('[placeholder="DD"]').click().type(day);
+    cy.get('[placeholder="MM"]').click().type(month);
+    cy.get('[placeholder="YYYY"]').click().type(year);
+    cy.contains('Enter').click();
+});
+
+Cypress.Commands.add('doSearch', (value) => {
+    cy.get('[aria-labelledby="title-white-search desc-white-search"] ').click();
+    cy.get('[placeholder="Begin typing to search"]').click();
+    cy.get('[placeholder="Begin typing to search"]').type(value, { capsLock: true });
+});
